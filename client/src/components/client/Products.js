@@ -366,9 +366,9 @@ class Products extends Component {
         return (
             <div>
                 <ClientNav />
-                <div class="my-8"></div>
+                <div class="my-5"></div>
                 <div class="flex">
-                    <div class="w-1/5 mx-8">
+                    <div class="w-1/5 mx-4">
                         <div>
                             <div class="flex">
                                 <div class="w-3/5">
@@ -377,7 +377,7 @@ class Products extends Component {
                                     </h3>
                                 </div>
                                 <div class="w-2/5">
-                                    <button
+                                    <button class="bg-blue-light text-black hover:bg-blue-dark hover:text-white py-1 px-3 rounded-full"
                                         type="submit"
                                         onClick={() =>
                                             this.onProductTypeSelectionClear()
@@ -398,7 +398,7 @@ class Products extends Component {
                                     </h3>
                                 </div>
                                 <div class="w-2/5">
-                                    <button
+                                    <button class="bg-blue-light text-black hover:bg-blue-dark hover:text-white py-1 px-3 rounded-full"
                                         type="submit"
                                         onClick={() =>
                                             this.onProductStatusSelectionClear()
