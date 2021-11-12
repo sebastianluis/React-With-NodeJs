@@ -33,10 +33,10 @@ export default class ClientHome extends Component {
 
         const content = productsTypes.map((ptype) => (
             <div
-                className="bg-white shadow-lg rounded m-8 p-8 flex md:bg-orange"
+                className="bg-gray text-black hover:bg-gray-dark hover:text-white shadow-lg rounded m-8 p-8 flex w-200"
                 key={ptype.id}
             >
-                <Link
+                <Link 
                     to={{
                         pathname: '/products',
                         state: { selectedType: ptype.id },

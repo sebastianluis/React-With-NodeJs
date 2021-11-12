@@ -93,9 +93,9 @@ export function StatusPill({ value }) {
             className={classNames(
                 'px-3 py-1 uppercase leading-wide font-bold text-xs rounded-full shadow-sm',
                 status.startsWith('active')
-                    ? 'bg-green-100 text-green-800'
+                    ? 'bg-green-dark text-white'
                     : null,
-                status.startsWith('inactive') ? 'bg-red-100 text-red-800' : null
+                status.startsWith('inactive') ? 'bg-red-light text-white' : null
             )}
         >
             {status}

@@ -2,10 +2,11 @@ module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: { animation: {
-      bounce200: 'bounce 1s infinite 200ms',
-      bounce400: 'bounce 1s infinite 400ms',
-  }},
+    extend: { 
+      width: {
+        '200': '175px',
+       }
+    },
     fontFamily: {
       sans: ['Questrial', 'sans-serif'],
     },
@@ -20,11 +21,15 @@ module.exports = {
       blue: {
         DEFAULT: '#132e48',
       },
+      black: {
+        dark: '#00000',
+      },
       yellow: {
         DEFAULT: '#e8bc10',
       },
       green: {
         DEFAULT: '#056947',
+        dark: '#056947'
       },
       brown: {
         light: '#ae4700',
@@ -40,6 +45,9 @@ module.exports = {
       },
       white: {
         DEFAULT: '#FFFFFF',
+      },
+      red: {
+        light: "#ff0000"
       }
     }
   },
