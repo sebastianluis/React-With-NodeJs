@@ -1,9 +1,9 @@
-import http from "../http-common";
+import http from '../http-common'
 
 class ProductTypeDataService {
-  getAll() {
-    return http.get("/types", { });
-  }
+    getAll() {
+        return http.get('/types', {})
+    }
 }
 
-export default new ProductTypeDataService();
+export default new ProductTypeDataService()
