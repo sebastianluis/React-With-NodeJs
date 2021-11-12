@@ -30,9 +30,9 @@ class Products extends Component {
             _.get(prevProps, 'location.search') !==
             _.get(this, 'props.location.search')
         ) {
-            const params = new URLSearchParams(_.get(this.props, 'location.search')).get(
-                'q'
-            )
+            const params = new URLSearchParams(
+                _.get(this.props, 'location.search')
+            ).get('q')
             const data = {
                 filter: {
                     typeIds: null,
@@ -41,6 +41,8 @@ class Products extends Component {
                 },
             }
             this.retrieveProducts(data)
+            this.clearProductTypeCheckBoxes();
+            this.clearProductStatusCheckBoxes();
         }
     }
     componentDidMount() {
@@ -200,9 +202,9 @@ class Products extends Component {
         }
         this.retrieveProducts(data)
     }
-    onProductTypeSelectionClear() {
+    clearProductTypeCheckBoxes() {
         const tempArrObj = []
-        const { productsTypes, selectedProductStatusList } = this.state
+        const { productsTypes } = this.state
         productsTypes.forEach((element, index) => {
             tempArrObj[index] = { id: element.id, checked: false }
         })
@@ -211,6 +213,10 @@ class Products extends Component {
             setTypeCheckedStateObj: tempArrObj,
             selectedTypeIdList: [],
         })
+    }
+    onProductTypeSelectionClear() {
+        this.clearProductTypeCheckBoxes()
+        const { selectedProductStatusList } = this.state
         const data = {
             filter: {
                 typeIds: null,
@@ -223,13 +229,16 @@ class Products extends Component {
         }
         this.retrieveProducts(data)
     }
-    onProductStatusSelectionClear() {
-        const { selectedTypeIdList } = this.state
+    clearProductStatusCheckBoxes() {
         this.setState({
             statusCheckedState: [false, false],
             setStatusCheckedState: [false, false],
             selectedProductStatusList: [],
         })
+    }
+    onProductStatusSelectionClear() {
+        this.clearProductStatusCheckBoxes()
+        const { selectedTypeIdList } = this.state;
         const data = {
             filter: {
                 typeIds:
@@ -253,7 +262,9 @@ class Products extends Component {
             }
         } else {
             if (selectedProductStatusList.includes(_.get(e, 'target.value'))) {
-                const index = selectedProductStatusList.indexOf(_.get(e, 'target.value'))
+                const index = selectedProductStatusList.indexOf(
+                    _.get(e, 'target.value')
+                )
                 if (index > -1) {
                     selectedProductStatusList.splice(index, 1)
                 }
