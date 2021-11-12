@@ -15,9 +15,8 @@ class SearchBox extends Component {
   }
   handleChange(e) {
     this.setState({searchTitle: e.target.value});
-   
     if(e.target.value=="") {
-        if(this.props.location.pathname !=="/" )
+        if(this.props.location.pathname.startsWith("/products") )
         this.props.history.replace(`/products`);
     }
   }
