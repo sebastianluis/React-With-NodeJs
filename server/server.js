@@ -1,5 +1,4 @@
 const express = require("express");
-// const bodyParser = require("body-parser"); /* deprecated */
 const cors = require("cors");
 
 const app = express();
@@ -26,10 +25,9 @@ db.sequelize.sync();
 
 // simple route
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome" });
+  res.json({ message: "Welcome, the server is up and running..." });
 });
 
-//require("./app/routes/turorial.routes")(app);
 require("./app/routes/product.routes")(app);
 require("./app/routes/types.routes")(app);
 
