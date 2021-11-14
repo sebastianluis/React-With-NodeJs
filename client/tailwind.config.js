@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: { 
       width: {
-        '200': '175px',
+        '200': '175px'
        }
     },
     fontFamily: {

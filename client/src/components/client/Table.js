@@ -160,10 +160,10 @@ function Table({ columns, data }) {
             <div className="mt-4 flex flex-col">
                 <div className="-my-2 overflow-x-auto -mx-4 sm:-mx-6 lg:-mx-8">
                     <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                        <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                        <div className="shadow overflow-hidden border-b border-gray-light sm:rounded-lg">
                             <table
                                 {...getTableProps()}
-                                className="min-w-full divide-y divide-gray-200"
+                                className="min-w-full divide-y divide-gray-light"
                             >
                                 <thead className="bg-gray-50">
                                     {headerGroups.map((headerGroup) => (
@@ -176,7 +176,7 @@ function Table({ columns, data }) {
                                                     // we can add them into the header props
                                                     <th
                                                         scope="col"
-                                                        className="group px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                                        className="bg-gray-dark group px-6 py-3 text-left text-xs font-bold text-white uppercase tracking-wider"
                                                         {...column.getHeaderProps(
                                                             column.getSortByToggleProps()
                                                         )}
@@ -206,7 +206,7 @@ function Table({ columns, data }) {
                                 </thead>
                                 <tbody
                                     {...getTableBodyProps()}
-                                    className="bg-white divide-y divide-gray-200"
+                                    className="bg-white divide-y divide-gray-light"
                                 >
                                     {page.map((row, i) => {
                                         // new
@@ -217,7 +217,7 @@ function Table({ columns, data }) {
                                                     return (
                                                         <td
                                                             {...cell.getCellProps()}
-                                                            className="px-6 py-4 whitespace-nowrap"
+                                                            className="px-6 py-3 whitespace-nowrap"
                                                             role="cell"
                                                         >
                                                             {cell.column.Cell

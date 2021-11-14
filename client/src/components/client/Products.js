@@ -368,7 +368,7 @@ class Products extends Component {
                 <ClientNav />
                 <div class="my-5"></div>
                 <div class="flex">
-                    <div class="w-1/5 mx-4">
+                    <div class="w-1/5 mx-5">
                         <div>
                             <div class="flex">
                                 <div class="w-3/5">
@@ -412,7 +412,7 @@ class Products extends Component {
                             {productStateList}
                         </div>
                     </div>
-                    <div class="w-4/5">
+                    <div class="w-4/5 mr-5">
                         <Table
                             columns={[
                                 {
