@@ -1,11 +1,40 @@
 import React, { Component } from 'react'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 import SearchBox from './SearchBox'
 class ClientNav extends Component {
     constructor(props) {
-        super(props)
+        super(props);
+        this.state = {
+            activeMenu: "home"
+        }
+    }
+    handleClick(e, value) {
+        this.setState({
+            activeMenu: value 
+        })
     }
     render() {
+        const menuItemsData =[
+            {
+                id: 'home',
+                title: 'Home',
+                navTo: '/'
+            },
+            {
+                id: 'products',
+                title: 'Products',
+                navTo: '/products'
+            }
+        ] 
+        const menuItems = 
+        menuItemsData.map(item =>
+            <Link key={ item.id }
+                  className={ this.state.activeMenu === item.id ? "bg-turquoise text-white hover:bg-turquoise-dark px-3 py-2 rounded-md text-sm font-medium" : "text-white hover:bg-turquoise hover:text-white px-3 py-2 rounded-md text-sm font-medium" }
+                  onClick={ (e) => this.handleClick(this, item.id) } 
+                  to={item.navTo}>
+              { item.title }
+            </Link>                    
+          )
         return (
             <div>
                 <nav class="bg-blue">
@@ -28,38 +57,11 @@ class ClientNav extends Component {
                                 {/* Nav Items */}
                                 <div class="hidden sm:block sm:ml-6">
                                     <div class="flex space-x-4">
-                                        <a
-                                            href="/"
-                                            class="bg-turquoise text-white hover:bg-turquoise-dark px-3 py-2 rounded-md text-sm font-medium"
-                                        >
-                                            Home
-                                        </a>
-                                        <a
-                                            href="/products"
-                                            class="text-white hover:bg-turquoise hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                                        >
-                                            Products
-                                        </a>
+                                       {menuItems}
                                     </div>
                                 </div>
                             </div>
                             <SearchBox></SearchBox>
-                        </div>
-                    </div>
-                    <div class="hidden sm:hidden">
-                        <div class="px-2 pt-2 pb-3 space-y-1">
-                            <a
-                                href="/"
-                                class="bg-blue text-white block px-3 py-2 rounded-md text-base font-medium"
-                            >
-                                Home
-                            </a>
-                            <a
-                                href="/products"
-                                class="text-white hover:bg-turquoise hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                            >
-                                Products
-                            </a>
                         </div>
                     </div>
                 </nav>

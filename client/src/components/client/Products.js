@@ -188,7 +188,10 @@ class Products extends Component {
         this.setState({
             typeCheckedStateObj: setTypeCheckedStateObj,
         })
-        console.log(setTypeCheckedStateObj)
+       // console.log(setTypeCheckedStateObj)
+       const params = new URLSearchParams(
+        _.get(this.props, 'location.search', null)
+    ).get('q');
         const data = {
             filter: {
                 typeIds:
@@ -197,8 +200,8 @@ class Products extends Component {
                     selectedProductStatusList.length === 0
                         ? null
                         : selectedProductStatusList,
-                searchTitle: null,
-            },
+                searchTitle: params,
+            }
         }
         this.retrieveProducts(data)
     }
@@ -275,7 +278,9 @@ class Products extends Component {
         this.setState({
             statusCheckedState: setStatusCheckedState,
         })
-
+        const params = new URLSearchParams(
+          _.get(this.props, 'location.search', null)
+      ).get('q');
         const data = {
             filter: {
                 typeIds:
@@ -284,7 +289,7 @@ class Products extends Component {
                     selectedProductStatusList.length === 0
                         ? null
                         : selectedProductStatusList,
-                searchTitle: null,
+                searchTitle: params,
             },
         }
         this.retrieveProducts(data)

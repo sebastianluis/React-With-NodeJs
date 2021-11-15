@@ -1,17 +1,34 @@
+import _ from 'lodash'
 import React, { Component } from 'react'
 import { withRouter } from 'react-router'
 
 class SearchBox extends Component {
     constructor(props) {
         super(props)
+        
         this.state = {
             searchTitle: '',
         }
         this.onKeyUp = this.onKeyUp.bind(this)
         this.handleClick = this.handleClick.bind(this)
     }
+    componentDidMount() {
+      //console.log(this.props);
+      const searchVal = new URLSearchParams(
+        _.get(this.props, 'location.search')
+    ).get('q')
+      if(searchVal) {
+        this.setState({
+          searchTitle: searchVal
+        })
+      }
+    }
     handleSearchKeyword(value) {
-        this.props.history.replace(`/products?q=${value}`)
+      if(value)
+        this.props.history.replace(`/products?q=${value}`);
+      else
+      this.props.history.replace(`/products`);
+
     }
     handleChange(e) {
         this.setState({ searchTitle: e.target.value })
