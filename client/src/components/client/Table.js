@@ -217,7 +217,7 @@ function Table({ columns, data }) {
                                                     return (
                                                         <td
                                                             {...cell.getCellProps()}
-                                                            className="px-6 py-3 whitespace-nowrap"
+                                                            className="px-3 py-2 whitespace-nowrap"
                                                             role="cell"
                                                         >
                                                             {cell.column.Cell
