@@ -218,7 +218,10 @@ class Products extends Component {
         })
     }
     onProductTypeSelectionClear() {
-        this.clearProductTypeCheckBoxes()
+        this.clearProductTypeCheckBoxes();
+        const params = new URLSearchParams(
+            _.get(this.props, 'location.search', null)
+        ).get('q');
         const { selectedProductStatusList } = this.state
         const data = {
             filter: {
@@ -227,7 +230,7 @@ class Products extends Component {
                     selectedProductStatusList.length === 0
                         ? null
                         : selectedProductStatusList,
-                searchTitle: null,
+                searchTitle: params,
             },
         }
         this.retrieveProducts(data)
@@ -240,14 +243,17 @@ class Products extends Component {
         })
     }
     onProductStatusSelectionClear() {
-        this.clearProductStatusCheckBoxes()
+        this.clearProductStatusCheckBoxes();
+        const params = new URLSearchParams(
+            _.get(this.props, 'location.search', null)
+        ).get('q');
         const { selectedTypeIdList } = this.state;
         const data = {
             filter: {
                 typeIds:
                     selectedTypeIdList.length === 0 ? null : selectedTypeIdList,
                 status: null,
-                searchTitle: null,
+                searchTitle: params,
             },
         }
         this.retrieveProducts(data)

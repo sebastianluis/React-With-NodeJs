@@ -6,7 +6,7 @@ module.exports = app => {
     // Create a new Tutorial
     router.post("/create", product.createRecords);
     router.get("/", product.findAll);
-    router.post("/", product.searchProducts);
+    router.post("/search", product.searchProducts);
 
   
     app.use('/api/product', router);

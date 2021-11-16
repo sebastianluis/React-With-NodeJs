@@ -5,7 +5,7 @@ class ProductDataService {
         return http.get('/product', { params })
     }
     search(params, data) {
-        return http.post('/product', { params, data })
+        return http.post('/product/search', { params, data })
     }
 }
 
