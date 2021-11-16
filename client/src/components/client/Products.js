@@ -41,8 +41,8 @@ class Products extends Component {
                 },
             }
             this.retrieveProducts(data)
-            this.clearProductTypeCheckBoxes();
-            this.clearProductStatusCheckBoxes();
+            this.clearProductTypeCheckBoxes()
+            this.clearProductStatusCheckBoxes()
         }
     }
     componentDidMount() {
@@ -188,10 +188,10 @@ class Products extends Component {
         this.setState({
             typeCheckedStateObj: setTypeCheckedStateObj,
         })
-       // console.log(setTypeCheckedStateObj)
-       const params = new URLSearchParams(
-        _.get(this.props, 'location.search', null)
-    ).get('q');
+        // console.log(setTypeCheckedStateObj)
+        const params = new URLSearchParams(
+            _.get(this.props, 'location.search', null)
+        ).get('q')
         const data = {
             filter: {
                 typeIds:
@@ -201,7 +201,7 @@ class Products extends Component {
                         ? null
                         : selectedProductStatusList,
                 searchTitle: params,
-            }
+            },
         }
         this.retrieveProducts(data)
     }
@@ -218,10 +218,10 @@ class Products extends Component {
         })
     }
     onProductTypeSelectionClear() {
-        this.clearProductTypeCheckBoxes();
+        this.clearProductTypeCheckBoxes()
         const params = new URLSearchParams(
             _.get(this.props, 'location.search', null)
-        ).get('q');
+        ).get('q')
         const { selectedProductStatusList } = this.state
         const data = {
             filter: {
@@ -243,11 +243,11 @@ class Products extends Component {
         })
     }
     onProductStatusSelectionClear() {
-        this.clearProductStatusCheckBoxes();
+        this.clearProductStatusCheckBoxes()
         const params = new URLSearchParams(
             _.get(this.props, 'location.search', null)
-        ).get('q');
-        const { selectedTypeIdList } = this.state;
+        ).get('q')
+        const { selectedTypeIdList } = this.state
         const data = {
             filter: {
                 typeIds:
@@ -285,8 +285,8 @@ class Products extends Component {
             statusCheckedState: setStatusCheckedState,
         })
         const params = new URLSearchParams(
-          _.get(this.props, 'location.search', null)
-      ).get('q');
+            _.get(this.props, 'location.search', null)
+        ).get('q')
         const data = {
             filter: {
                 typeIds:
@@ -388,7 +388,8 @@ class Products extends Component {
                                     </h3>
                                 </div>
                                 <div class="w-2/5">
-                                    <button class="bg-blue-light text-black hover:bg-blue-dark hover:text-white py-1 px-3 rounded-full"
+                                    <button
+                                        class="bg-blue-light text-black hover:bg-blue-dark hover:text-white py-1 px-3 rounded-full"
                                         type="submit"
                                         onClick={() =>
                                             this.onProductTypeSelectionClear()
@@ -409,7 +410,8 @@ class Products extends Component {
                                     </h3>
                                 </div>
                                 <div class="w-2/5">
-                                    <button class="bg-blue-light text-black hover:bg-blue-dark hover:text-white py-1 px-3 rounded-full"
+                                    <button
+                                        class="bg-blue-light text-black hover:bg-blue-dark hover:text-white py-1 px-3 rounded-full"
                                         type="submit"
                                         onClick={() =>
                                             this.onProductStatusSelectionClear()
